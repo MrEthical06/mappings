@@ -3,8 +3,8 @@ import fs from "fs";
 async function convertTablesToJSON() {
   const rows = await prisma.$queryRaw`SELECT * FROM "Anime"`;
 
-  const json = JSON.stringify(rows);
-  fs.writeFileSync("export.json", json);
+  const json = JSON.stringify(rows, null, 2);
+  fs.writeFileSync("exporttest2.json", json, "utf8");
 
   // You can do whatever you want with the JSON here, e.g. write it to a file.
 
